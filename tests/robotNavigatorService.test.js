@@ -7,7 +7,7 @@ import DIRECTION from "../src/enums/directions";
 
 describe("RobotNavigatorService", () => {
   test("given coordinate, robot and table should move robot to coordinate on table", () => {
-    const testRobot = new Robot();
+    const testRobot = new Robot(new Coordinate(0, 0), DIRECTION.SOUTH);
     const testRobotNavigatorService = new RobotNavigatorService();
     const testTable = new Table(5, 5);
     const coordinate = new Coordinate(1, 1);
