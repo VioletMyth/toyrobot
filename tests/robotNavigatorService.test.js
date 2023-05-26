@@ -31,4 +31,15 @@ describe("RobotNavigatorService", () => {
       expect(testRobot.direction).toBe(expected);
     }
   );
+
+  test("robot should move forward one square on table", () => {
+    const testRobot = new Robot(new Coordinate(0, 0), DIRECTION.NORTH);
+    const testTable = new Table(5, 5);
+    const testRobotNavigatorService = new RobotNavigatorService();
+    testRobotNavigatorService.moveRobotForward(testRobot, testTable);
+
+    expect(testRobot.position.x).toBe(0);
+    expect(testRobot.position.y).toBe(1);
+    expect(testTable.layout[0][1]).toBe(testRobot);
+  });
 });
