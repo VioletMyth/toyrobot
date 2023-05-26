@@ -17,4 +17,18 @@ describe("RobotNavigatorService", () => {
     expect(testRobot.position.y).toBe(1);
     expect(testTable.layout[1][1]).toBe(testRobot);
   });
+
+  test.each([
+    { input: ROTATION.LEFT, expected: DIRECTION.WEST },
+    { input: ROTATION.RIGHT, expected: DIRECTION.EAST },
+  ])(
+    "robot should point in $expected direction given $input",
+    ({ input, expected }) => {
+      const testRobot = new Robot(new Coordinate(0, 0), DIRECTION.NORTH);
+      const testRobotNavigatorService = new RobotNavigatorService();
+      testRobotNavigatorService.rotateRobot(testRobot, input);
+
+      expect(testRobot.direction).toBe(expected);
+    }
+  );
 });
