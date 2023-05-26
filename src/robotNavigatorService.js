@@ -26,6 +26,20 @@ class RobotNavigatorService {
       robot.direction = directions[newIndex];
     }
   }
+
+  moveRobotForward(robot, table) {
+    table.layout[robot.position.x][robot.position.y] = null;
+    if (robot.direction === DIRECTION.EAST) {
+      robot.position.x += 1;
+    } else if (robot.direction === DIRECTION.WEST) {
+      robot.position.x -= 1;
+    } else if (robot.direction === DIRECTION.NORTH) {
+      robot.position.y += 1;
+    } else {
+      robot.position.y -= 1;
+    }
+    table.layout[robot.position.x][robot.position.y] = robot;
+  }
 }
 
 export default RobotNavigatorService;
