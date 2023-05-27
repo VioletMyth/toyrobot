@@ -42,4 +42,17 @@ describe("RobotNavigatorService", () => {
     expect(testRobot.position.y).toBe(1);
     expect(testTable.layout[0][1]).toBe(testRobot);
   });
+
+  test("robot should not move when on the edge of top", () => {
+    const testRobot = new Robot(new Coordinate(0, 0), DIRECTION.SOUTH);
+    const testTable = new Table(5, 5);
+    testTable.layout[0][0] = testRobot;
+    const testRobotNavigatorService = new RobotNavigatorService();
+    testRobotNavigatorService.moveRobotForward(testRobot, testTable);
+
+    expect(testRobot.position.x).toBe(0);
+    expect(testRobot.position.y).toBe(0);
+    expect(testRobot.direction).toBe(DIRECTION.SOUTH);
+    expect(testTable.layout[0][0]).toBe(testRobot);
+  });
 });
