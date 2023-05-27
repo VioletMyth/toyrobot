@@ -28,16 +28,31 @@ class RobotNavigatorService {
   }
 
   moveRobotForward(robot, table) {
-    table.layout[robot.position.x][robot.position.y] = null;
+    const robotPreviousX = robot.position.x;
+    const robotPreviousY = robot.position.y;
+
     if (robot.direction === DIRECTION.EAST) {
+      if (robot.position.x === table.width - 1) {
+        return;
+      }
       robot.position.x += 1;
     } else if (robot.direction === DIRECTION.WEST) {
+      if (robot.position.x === 0) {
+        return;
+      }
       robot.position.x -= 1;
     } else if (robot.direction === DIRECTION.NORTH) {
+      if (robot.position.y === table.height - 1) {
+        return;
+      }
       robot.position.y += 1;
     } else {
+      if (robot.position.y === 0) {
+        return;
+      }
       robot.position.y -= 1;
     }
+    table.layout[robotPreviousX][robotPreviousY] = null;
     table.layout[robot.position.x][robot.position.y] = robot;
   }
 }
