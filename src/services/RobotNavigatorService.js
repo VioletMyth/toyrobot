@@ -1,5 +1,5 @@
-import ROTATION from "./enums/rotation.js";
-import DIRECTION from "./enums/Direction.js";
+import ROTATION from "../enums/rotation.js";
+import DIRECTION from "../enums/Direction.js";
 
 class RobotNavigatorService {
   placeRobot(robot, table, coordinate) {

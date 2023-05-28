@@ -1,6 +1,6 @@
-import COMMAND from "../src/enums/command.js";
-import DIRECTION from "../src/enums/Direction.js";
-import Parser from "../src/Parser.js";
+import COMMAND from "../../enums/command.js";
+import DIRECTION from "../../enums/Direction.js";
+import Parser from "../Parser.js";
 
 describe("Parser", () => {
   test("parseDirection", () => {

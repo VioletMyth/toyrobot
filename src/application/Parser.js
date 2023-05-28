@@ -1,5 +1,5 @@
-import DIRECTION from "./enums/Direction.js";
-import COMMAND from "./enums/command.js";
+import DIRECTION from "../enums/Direction.js";
+import COMMAND from "../enums/command.js";
 
 class Parser {
   parseDirection(string) {
