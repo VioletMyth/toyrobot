@@ -1,9 +1,9 @@
 import RobotNavigatorService from "../src/robotNavigatorService";
-import Robot from "../src/robot";
+import Robot from "../src/Robot.js";
 import Coordinate from "../src/Coordinate";
-import Table from "../src/table";
-import ROTATION from "../src/enums/rotation";
-import DIRECTION from "../src/enums/directions";
+import Table from "../src/Table.js";
+import ROTATION from "../src/enums/rotation.js";
+import DIRECTION from "../src/enums/Direction.js";
 
 describe("RobotNavigatorService", () => {
   test("given coordinate, robot and table should move robot to coordinate on table", () => {
