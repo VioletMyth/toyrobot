@@ -3,7 +3,6 @@ import { jest } from "@jest/globals";
 import COMMAND from "../../enums/Command.js";
 import RobotNavigatorService from "../../services/RobotNavigatorService.js";
 import DIRECTION from "../../enums/Direction";
-// jest.mock("../../services/RobotNavigatorService.js");
 jest.spyOn(global.console, "log");
 
 describe("CommandProcessor", () => {

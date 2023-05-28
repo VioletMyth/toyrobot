@@ -22,7 +22,6 @@ class CommandProcessor {
       case "PLACE":
         this.firstPlaceCommandProcessed = true;
 
-        // Handle the "place" command
         this.table = new Table(HEIGHT, WIDTH);
         const coordinate = new Coordinate(args.x, args.y);
         this.robot = new Robot(coordinate, args.direction);
@@ -34,20 +33,21 @@ class CommandProcessor {
         break;
 
       case "LEFT":
-        // Handle the "left" command
         this.robotNavigatorService.rotateRobot(this.robot, "LEFT");
         break;
       case "RIGHT":
-        // Handle the "right" command
         this.robotNavigatorService.rotateRobot(this.robot, "RIGHT");
         break;
       case "MOVE":
-        // Handle the "move" command
         this.robotNavigatorService.moveRobotForward(this.robot, this.table);
         break;
       case "REPORT":
-        console.log(this.robot.position, this.robot.direction);
-        // Handle the "report" command
+        console.log(
+          "%s,%s,%s",
+          this.robot.position.x,
+          this.robot.position.y,
+          this.robot.direction
+        );
         break;
       default:
         throw new Error("Invalid command.");
