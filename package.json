@@ -4,7 +4,9 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +26,8 @@
   "jest": {
     "transform": {},
     "testEnvironment": "jest-environment-node"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
   }
 }
