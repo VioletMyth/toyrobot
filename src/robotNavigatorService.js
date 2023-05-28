@@ -1,8 +1,8 @@
-import ROTATION from "./enums/rotation";
-import DIRECTION from "./enums/directions";
+import ROTATION from "./enums/rotation.js";
+import DIRECTION from "./enums/directions.js";
 
 class RobotNavigatorService {
-  moveRobot(robot, table, coordinate) {
+  placeRobot(robot, table, coordinate) {
     robot.position.x = coordinate.x;
     robot.position.y = coordinate.y;
     table.layout[coordinate.x][coordinate.y] = robot;
@@ -31,29 +31,34 @@ class RobotNavigatorService {
     const robotPreviousX = robot.position.x;
     const robotPreviousY = robot.position.y;
 
+    if (this.isRobotFacingEdgeOfTable(robot, table)) {
+      return;
+    }
+
     if (robot.direction === DIRECTION.EAST) {
-      if (robot.position.x === table.width - 1) {
-        return;
-      }
       robot.position.x += 1;
     } else if (robot.direction === DIRECTION.WEST) {
-      if (robot.position.x === 0) {
-        return;
-      }
       robot.position.x -= 1;
     } else if (robot.direction === DIRECTION.NORTH) {
-      if (robot.position.y === table.height - 1) {
-        return;
-      }
       robot.position.y += 1;
     } else {
-      if (robot.position.y === 0) {
-        return;
-      }
       robot.position.y -= 1;
     }
     table.layout[robotPreviousX][robotPreviousY] = null;
     table.layout[robot.position.x][robot.position.y] = robot;
+  }
+
+  isRobotFacingEdgeOfTable(robot, table) {
+    switch (robot.direction) {
+      case DIRECTION.EAST:
+        return robot.position.x === table.width - 1;
+      case DIRECTION.WEST:
+        return robot.position.x === 0;
+      case DIRECTION.NORTH:
+        return robot.position.y === table.height - 1;
+      case DIRECTION.SOUTH:
+        return robot.position.y === 0;
+    }
   }
 }
 

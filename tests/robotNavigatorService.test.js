@@ -11,7 +11,7 @@ describe("RobotNavigatorService", () => {
     const testRobotNavigatorService = new RobotNavigatorService();
     const testTable = new Table(5, 5);
     const coordinate = new Coordinate(1, 1);
-    testRobotNavigatorService.moveRobot(testRobot, testTable, coordinate);
+    testRobotNavigatorService.placeRobot(testRobot, testTable, coordinate);
 
     expect(testRobot.position.x).toBe(1);
     expect(testRobot.position.y).toBe(1);
