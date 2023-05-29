@@ -4,9 +4,14 @@ import CommandProcessor from "./application/CommandProcessor.js";
 import RobotNavigatorService from "./services/RobotNavigatorService.js";
 import fs from "fs";
 import readline from "readline";
+import TableBoundaryService from "./services/TableBoundaryService.js";
 
 const robotNavigatorService = new RobotNavigatorService();
-const commandProcessor = new CommandProcessor(robotNavigatorService);
+const tableBoundaryService = new TableBoundaryService();
+const commandProcessor = new CommandProcessor(
+  robotNavigatorService,
+  tableBoundaryService
+);
 const parser = new Parser();
 
 function start() {
